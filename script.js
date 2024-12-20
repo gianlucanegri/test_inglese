@@ -6,7 +6,6 @@ let currentVerb = {};
 let score = 0;
 let totalQuestions = 0;
 
-// Carica i verbi iniziali
 fetch('verbs.json')
     .then(response => response.json())
     .then(data => {
@@ -44,12 +43,19 @@ function checkAnswer() {
 function addVerb() {
     const italian = prompt('Inserisci il verbo in italiano:');
     if (italian) {
-        // Simula traduzione e coniugazione
-        const pastSimple = italian + 'ed';
-        const pastParticiple = italian + 'ed';
-        verbsCustom.push({ italiano: italian, past_simple: pastSimple, past_participle: pastParticiple });
-        localStorage.setItem('verbsCustom', JSON.stringify(verbsCustom));
-        alert('Verbo aggiunto con successo!');
+        fetch(`https://api.mymemory.translated.net/get?q=${italian}&langpair=it|en`)
+            .then(response => response.json())
+            .then(data => {
+                const translated = data.responseData.translatedText;
+                if (translated) {
+                    verbsCustom.push({ italiano: italian, past_simple: translated + 'ed', past_participle: translated + 'ed' });
+                    localStorage.setItem('verbsCustom', JSON.stringify(verbsCustom));
+                    alert(`Verbo aggiunto: ${italian} -> ${translated}`);
+                } else {
+                    alert('Errore nella traduzione!');
+                }
+            })
+            .catch(() => alert('Errore nel recupero della traduzione!'));
     }
 }
 
