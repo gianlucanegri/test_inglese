@@ -1,3 +1,4 @@
+
 let verbsDefault = [];
 let verbsCustom = [];
 let useCustomVerbs = false;
@@ -21,7 +22,7 @@ function nextQuestion() {
         currentVerb = verbs[index];
         document.getElementById('verb').innerText = `Verbo: ${currentVerb.italiano}`;
     } else {
-        alert("Nessun verbo disponibile!");
+        alert('Nessun verbo disponibile!');
     }
 }
 
@@ -40,26 +41,27 @@ function checkAnswer() {
 }
 
 function addVerb() {
-    const italian = prompt("Inserisci il verbo in italiano:");
-    const pastSimple = prompt("Inserisci il Past Simple:");
-    const pastParticiple = prompt("Inserisci il Past Participle:");
+    const italian = prompt('Inserisci il verbo in italiano:');
+    const pastSimple = prompt('Inserisci il Past Simple:');
+    const pastParticiple = prompt('Inserisci il Past Participle:');
 
     if (italian && pastSimple && pastParticiple) {
         verbsCustom.push({ italiano: italian, past_simple: pastSimple, past_participle: pastParticiple });
-        alert("Verbo aggiunto con successo!");
+        alert('Verbo aggiunto con successo!');
     } else {
-        alert("Tutti i campi sono obbligatori!");
+        alert('Tutti i campi sono obbligatori!');
     }
 }
 
 function showVerbs() {
     const verbs = useCustomVerbs ? verbsCustom : verbsDefault;
-    alert(verbs.map(v => `${v.italiano}: ${v.past_simple}, ${v.past_participle}`).join("\n"));
+    const verbList = verbs.map(v => `${v.italiano}: ${v.past_simple}, ${v.past_participle}`).join('\n');
+    alert(`Lista Verbi:\n${verbList}`);
 }
 
 function switchVerbList() {
     useCustomVerbs = !useCustomVerbs;
-    alert(`Stai utilizzando i verbi ${useCustomVerbs ? "personalizzati" : "default"}.`);
+    alert(`Stai usando i verbi ${useCustomVerbs ? 'personalizzati' : 'predefiniti'}.`);
     nextQuestion();
 }
 
