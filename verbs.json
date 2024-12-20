@@ -1,5 +1,5 @@
 {
-    "verbi": [
+    "verbi_default": [
         {
             "italiano": "giocare",
             "past_simple": "played",
@@ -25,5 +25,6 @@
             "past_simple": "sang",
             "past_participle": "sung"
         }
-    ]
+    ],
+    "verbi_personalizzati": []
 }
