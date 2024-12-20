@@ -1,0 +1,20 @@
+[
+  {
+    "italian": "essere",
+    "english": "be",
+    "past": "was/were",
+    "participle": "been"
+  },
+  {
+    "italian": "avere",
+    "english": "have",
+    "past": "had",
+    "participle": "had"
+  },
+  {
+    "italian": "andare",
+    "english": "go",
+    "past": "went",
+    "participle": "gone"
+  }
+]

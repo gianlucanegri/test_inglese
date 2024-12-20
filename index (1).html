@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Verbi Irregolari Inglesi</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    button, select, input { margin: 5px; }
+    #result { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Test sui Verbi Irregolari Inglesi</h1>
+
+  <div>
+    <label>Tipo di Test:</label>
+    <select id="testType">
+      <option value="it-en">Dall'italiano all'inglese</option>
+      <option value="en-it">Dall'inglese all'italiano</option>
+    </select>
+  </div>
+
+  <div>
+    <button onclick="startTest()">Inizia Test</button>
+    <button onclick="showAddVerbForm()">Aggiungi Verbo</button>
+  </div>
+
+  <div id="testContainer" style="display:none;">
+    <p id="question"></p>
+    <input type="text" id="answer" placeholder="Risposta">
+    <button onclick="checkAnswer()">Conferma</button>
+    <div id="feedback"></div>
+  </div>
+
+  <div id="addVerbContainer" style="display:none;">
+    <h3>Aggiungi Nuovo Verbo</h3>
+    <input type="text" id="newVerbItalian" placeholder="Verbo in italiano">
+    <button onclick="addVerb()">Aggiungi</button>
+    <div id="addVerbFeedback"></div>
+  </div>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
