@@ -1,134 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Verbi Irregolari Inglesi</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      color: #333;
-    }
-
-    .button-group button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #f2f2f2;
-      cursor: pointer;
-    }
-
-    .button-group button.active {
-      background-color: #000;
-      color: white;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      color: #555;
-      margin: 10px 0;
-    }
-
-    .label {
-      text-align: left;
-      margin: 10px 0 5px;
-      font-weight: bold;
-      color: #555;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .feedback {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: green;
-      margin: 5px 0;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px 0;
-    }
-
-    button {
-      background-color: #333;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button.secondary {
-      background-color: #f2f2f2;
-      color: #333;
-    }
-
-    .footer-buttons {
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Verbi Irregolari</title>
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <h1>Quiz Verbi Irregolari Inglesi</h1>
-    
-    <div class="button-group">
-      <button id="allVerbs">Tutti i verbi</button>
-      <button id="presetVerbs">Verbi predefiniti</button>
-      <button id="customVerbs" class="active">Verbi personalizzati</button>
+    <div id="quiz-container">
+        <h2 id="verb">Verbo:</h2>
+        <label for="pastSimple">Past Simple:</label>
+        <input type="text" id="pastSimple" placeholder="Inserisci il Past Simple"><br>
+        <label for="pastParticiple">Past Participle:</label>
+        <input type="text" id="pastParticiple" placeholder="Inserisci il Past Participle"><br>
+        <button onclick="checkAnswer()">Verifica</button>
+        <button onclick="nextQuestion()">Prossimo verbo</button>
+        <button onclick="showResults()">Stop</button>
     </div>
-
-    <div>
-      <h2 id="verb">Verbo: <strong>play</strong> <br> <small>(giocare)</small></h2>
-    </div>
-
-    <div class="label">Past Simple:</div>
-    <input type="text" id="pastSimple" placeholder="Inserisci il passato semplice">
-    <div id="feedbackSimple" class="feedback">✓</div>
-
-    <div class="label">Past Participle:</div>
-    <input type="text" id="pastParticiple" placeholder="Inserisci il participio passato">
-    <div id="feedbackParticiple" class="feedback">✓</div>
-
-    <div class="buttons">
-      <button onclick="checkAnswers()">Verifica</button>
-      <button class="secondary" onclick="nextVerb()">Prossimo verbo</button>
-    </div>
-
-    <div class="footer-buttons">
-      <button class="secondary">Aggiungi verbo</button>
-      <button class="secondary">Mostra lista</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <p id="feedback"></p>
+    <p id="score"></p>
 </body>
 </html>

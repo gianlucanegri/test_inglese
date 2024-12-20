@@ -1,20 +1,29 @@
-[
-  {
-    "italian": "giocare",
-    "english": "play",
-    "past": "played",
-    "participle": "played"
-  },
-  {
-    "italian": "essere",
-    "english": "be",
-    "past": "was/were",
-    "participle": "been"
-  },
-  {
-    "italian": "avere",
-    "english": "have",
-    "past": "had",
-    "participle": "had"
-  }
-]
+{
+    "verbi": [
+        {
+            "italiano": "giocare",
+            "past_simple": "played",
+            "past_participle": "played"
+        },
+        {
+            "italiano": "scrivere",
+            "past_simple": "wrote",
+            "past_participle": "written"
+        },
+        {
+            "italiano": "leggere",
+            "past_simple": "read",
+            "past_participle": "read"
+        },
+        {
+            "italiano": "correre",
+            "past_simple": "ran",
+            "past_participle": "run"
+        },
+        {
+            "italiano": "cantare",
+            "past_simple": "sang",
+            "past_participle": "sung"
+        }
+    ]
+}
