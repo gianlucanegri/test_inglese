@@ -11,20 +11,17 @@
 <body>
     <div class="container">
         <h1>Quiz Verbi Irregolari Inglesi</h1>
-        <div class="verb-container">
+        <div class="quiz-box">
             <h2 id="verb">Verbo:</h2>
-            <div class="inputs">
-                <label for="pastSimple">Past Simple:</label>
-                <input type="text" id="pastSimple" placeholder="Inserisci il Past Simple">
-                <label for="pastParticiple">Past Participle:</label>
-                <input type="text" id="pastParticiple" placeholder="Inserisci il Past Participle">
-            </div>
+            <label for="pastSimple">Past Simple:</label>
+            <input type="text" id="pastSimple" placeholder="Inserisci il Past Simple"><br>
+            <label for="pastParticiple">Past Participle:</label>
+            <input type="text" id="pastParticiple" placeholder="Inserisci il Past Participle"><br>
             <div class="buttons">
                 <button onclick="checkAnswer()">Verifica</button>
                 <button onclick="nextQuestion()">Prossimo Verbo</button>
                 <button onclick="addVerb()">Aggiungi Verbo</button>
-                <button onclick="showVerbs()">Mostra Tutti i Verbi</button>
-                <button onclick="switchVerbList()">Cambia Lista</button>
+                <button onclick="showVerbs()">Mostra Verbi</button>
             </div>
             <p id="feedback"></p>
             <p id="score"></p>
