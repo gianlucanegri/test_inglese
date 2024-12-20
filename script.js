@@ -6,7 +6,7 @@ let currentVerb = {};
 let score = 0;
 let totalQuestions = 0;
 
-// Carica i verbi predefiniti
+// Carica i verbi iniziali
 fetch('verbs.json')
     .then(response => response.json())
     .then(data => {
@@ -34,24 +34,22 @@ function checkAnswer() {
     totalQuestions++;
     if (pastSimple === currentVerb.past_simple && pastParticiple === currentVerb.past_participle) {
         score++;
-        document.getElementById('feedback').innerText = 'Corretto!';
+        document.getElementById('feedback').innerText = '✅ Risposta corretta!';
     } else {
-        document.getElementById('feedback').innerText = `Sbagliato! Corretto: ${currentVerb.past_simple}, ${currentVerb.past_participle}`;
+        document.getElementById('feedback').innerText = `❌ Sbagliato! Corretto: ${currentVerb.past_simple}, ${currentVerb.past_participle}`;
     }
     document.getElementById('score').innerText = `Risposte corrette: ${score}/${totalQuestions}`;
 }
 
 function addVerb() {
     const italian = prompt('Inserisci il verbo in italiano:');
-    const pastSimple = prompt('Inserisci il Past Simple:');
-    const pastParticiple = prompt('Inserisci il Past Participle:');
-
-    if (italian && pastSimple && pastParticiple) {
+    if (italian) {
+        // Simula traduzione e coniugazione
+        const pastSimple = italian + 'ed';
+        const pastParticiple = italian + 'ed';
         verbsCustom.push({ italiano: italian, past_simple: pastSimple, past_participle: pastParticiple });
         localStorage.setItem('verbsCustom', JSON.stringify(verbsCustom));
         alert('Verbo aggiunto con successo!');
-    } else {
-        alert('Tutti i campi sono obbligatori!');
     }
 }
 
