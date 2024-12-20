@@ -1,5 +1,11 @@
 [
   {
+    "italian": "giocare",
+    "english": "play",
+    "past": "played",
+    "participle": "played"
+  },
+  {
     "italian": "essere",
     "english": "be",
     "past": "was/were",
@@ -10,11 +16,5 @@
     "english": "have",
     "past": "had",
     "participle": "had"
-  },
-  {
-    "italian": "andare",
-    "english": "go",
-    "past": "went",
-    "participle": "gone"
   }
 ]

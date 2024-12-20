@@ -4,45 +4,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Verbi Irregolari Inglesi</title>
+  <title>Quiz Verbi Irregolari Inglesi</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1 { color: #333; }
-    button, select, input { margin: 5px; }
-    #result { margin-top: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .button-group button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #f2f2f2;
+      cursor: pointer;
+    }
+
+    .button-group button.active {
+      background-color: #000;
+      color: white;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .label {
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .feedback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: green;
+      margin: 5px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .footer-buttons {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>Test sui Verbi Irregolari Inglesi</h1>
+  <div class="container">
+    <h1>Quiz Verbi Irregolari Inglesi</h1>
+    
+    <div class="button-group">
+      <button id="allVerbs">Tutti i verbi</button>
+      <button id="presetVerbs">Verbi predefiniti</button>
+      <button id="customVerbs" class="active">Verbi personalizzati</button>
+    </div>
 
-  <div>
-    <label>Tipo di Test:</label>
-    <select id="testType">
-      <option value="it-en">Dall'italiano all'inglese</option>
-      <option value="en-it">Dall'inglese all'italiano</option>
-    </select>
+    <div>
+      <h2 id="verb">Verbo: <strong>play</strong> <br> <small>(giocare)</small></h2>
+    </div>
+
+    <div class="label">Past Simple:</div>
+    <input type="text" id="pastSimple" placeholder="Inserisci il passato semplice">
+    <div id="feedbackSimple" class="feedback">✓</div>
+
+    <div class="label">Past Participle:</div>
+    <input type="text" id="pastParticiple" placeholder="Inserisci il participio passato">
+    <div id="feedbackParticiple" class="feedback">✓</div>
+
+    <div class="buttons">
+      <button onclick="checkAnswers()">Verifica</button>
+      <button class="secondary" onclick="nextVerb()">Prossimo verbo</button>
+    </div>
+
+    <div class="footer-buttons">
+      <button class="secondary">Aggiungi verbo</button>
+      <button class="secondary">Mostra lista</button>
+    </div>
   </div>
-
-  <div>
-    <button onclick="startTest()">Inizia Test</button>
-    <button onclick="showAddVerbForm()">Aggiungi Verbo</button>
-  </div>
-
-  <div id="testContainer" style="display:none;">
-    <p id="question"></p>
-    <input type="text" id="answer" placeholder="Risposta">
-    <button onclick="checkAnswer()">Conferma</button>
-    <div id="feedback"></div>
-  </div>
-
-  <div id="addVerbContainer" style="display:none;">
-    <h3>Aggiungi Nuovo Verbo</h3>
-    <input type="text" id="newVerbItalian" placeholder="Verbo in italiano">
-    <button onclick="addVerb()">Aggiungi</button>
-    <div id="addVerbFeedback"></div>
-  </div>
-
-  <div id="result"></div>
 
   <script src="script.js"></script>
 </body>
