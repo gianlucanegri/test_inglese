@@ -6,11 +6,12 @@ let currentVerb = {};
 let score = 0;
 let totalQuestions = 0;
 
+// Carica i verbi predefiniti
 fetch('verbs.json')
     .then(response => response.json())
     .then(data => {
         verbsDefault = data.verbi_default;
-        verbsCustom = data.verbi_personalizzati;
+        verbsCustom = JSON.parse(localStorage.getItem('verbsCustom')) || [];
         nextQuestion();
     });
 
@@ -47,6 +48,7 @@ function addVerb() {
 
     if (italian && pastSimple && pastParticiple) {
         verbsCustom.push({ italiano: italian, past_simple: pastSimple, past_participle: pastParticiple });
+        localStorage.setItem('verbsCustom', JSON.stringify(verbsCustom));
         alert('Verbo aggiunto con successo!');
     } else {
         alert('Tutti i campi sono obbligatori!');
